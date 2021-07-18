@@ -9,8 +9,11 @@
 </head>
 
 <body>
-   <ul>
-   </ul>
+  <ul>
+    {% for month in months %}
+      <li><a href="{% url "month-challenge" month %}">{{ month|title }}</a></li>
+    {% endfor %}
+  </ul>
 </body>
 
 </html>
