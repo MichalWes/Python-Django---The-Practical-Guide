@@ -14,7 +14,7 @@ monthly_challenges = {
     "september": "Ahoj Topinamburku!",
     "october": "Ahoj Słońciu!",
     "november": "Ahoj Kangurku!",
-    "december": "Ahoj Żabciu"
+    "december": None
 }
 
 # Create your views here.
@@ -22,13 +22,12 @@ monthly_challenges = {
 
 def index(request):
     list_items = ""
-    months = monthly_challenges.keys()
-
-    return render(request, "challenges/index.html", {
-        "months": months
-    })
-
-    
+    for month in monthly_challenges.keys():
+        month_path = reverse("month-challenge", args=[month])
+        print(month_path)
+        list_items += f"<li><a href=\"{month_path}\">{month.capitalize()}</a></li>"
+    response_data = f"<ul>{list_items}</ul>"
+    return HttpResponse(response_data)
 
 
 def monthly_challenge_by_number(request, month):
