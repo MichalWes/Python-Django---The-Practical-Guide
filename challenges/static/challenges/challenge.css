@@ -1,0 +1,17 @@
+h1, 
+h2 {
+    text-align: center;
+    color: olive;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin: 2 rem 0 1 rem 0;
+    font-weight: normal;
+    color: orchid;
+}
+
+h2 {
+    font-size: 3rem;
+    font-weight: bold;
+}
