@@ -6,9 +6,9 @@ def start_page(request):
     return HttpResponse("This is a startpage")
 
 
-def all_posts(request):
+def posts(request):
     return HttpResponse("These are all posts")
 
 
-def first_post(request):
+def single_posts(request):
     return HttpResponse("This is the first post")
