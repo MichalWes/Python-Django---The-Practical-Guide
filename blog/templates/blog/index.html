@@ -6,38 +6,24 @@
 {% endblock title %}
 
 {% block css_files %}
+  <link rel="stylesheet" href="{% static "blog/post.css" %}"/>
   <link rel="stylesheet" href="{% static "blog/index.css" %}"/>
 {% endblock %}
 
 {% block content %}
-  <header id="main-navigation">
-    <h1><a href="">Blog Sylwii i Michała</a></h1>
-    <nav>
-      <a href="">All Posts</a>
-    </nav>
-  </header>
-
   <section id="welcome">
     <header>
       <img src="{% static "blog/images/1.jpeg" %}" alt="Sylwia i Michał - Wielka Miłość"/>
-      <h2>Blog Gąbeczki i Węsiera</h2>
+      <h2>Blog Sylwii i Michała</h2>
     </header>
-    <p>Cześć, nazywamy się Syliwa i Michał i bardzo się kochamy</p>
+    <p>Cześć, nazywamy się Sylwia i Michał</p>
   </section>
   <section id="latest-posts">
     <h2>Nasze ostatnie przemyślenia</h2>
     <ul>
-      <li>
-        <article class="post"> 
-          <a href="">
-            <img src="{% static "blog/images/2.jpg" %}" alt="Prague"/>
-            <div class="post__content">
-              <h3>Wakacje w Pradze</h3>
-              <p>W Pradze było nam fantastyczne, chodziliśmy sobie i zwiedzaliśmy wśród tłumów ludzi przed pandemią</p>
-            </div>
-          </a>
-        </article>
-      </li>
+      {% for post in posts %}
+        {% include "blog/includes/post.html" %}
+      {% endfor %}
     </ul>
   </section>
   
