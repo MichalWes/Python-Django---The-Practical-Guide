@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-Wizyta w Pradze
+{{ post.title }}
 {% endblock title %}
 
 {% block css_files %}
@@ -11,36 +11,16 @@ Wizyta w Pradze
 
 {% block content %}
   <section id="summary">
-    <h2>Wizyta w Stolicy Czech</h2>
+    <h2>{{ post.title }}</h2>
     <article>
-      <img src="{% static "blog/images/2.jpg" %}" alt="Praga, Praga, Praga..."/>
-      <address>Napisał to Michał</address>
+      <img src="{% static "blog/images/"|add:post.image %}" alt="{{ post.title }}"/>
+      <address>Napisał to {{post.author}}</address>
       <div>
-        Ostatnio akutalizowany <time>29 lipca</time>
+        Ostatnio akutalizowany <time>{{post.date|date:"d M Y"}}</time>
       </div>
     </article>
   </section>
   <main>
-    <p>
-      Drogi Marszałku, Wysoka Izbo. PKB rośnie. Różnorakie i realizacji nowych propozycji. Wyższe założenie ideowe, a także usprawnienie systemu szkolenia kadr spełnia ważne z dotychczasowymi zasadami dalszych poczynań. Różnorakie i unowocześniania modelu rozwoju. Tak samo istotne jest ważne z powodu modelu.
-    </p>
-      Drogi Marszałku, Wysoka Izbo. PKB rośnie. Różnorakie i znaczenia tych problemów nie trzeba udowadniać, ponieważ rozpoczęcie powszechnej akcji kształtowania podstaw zmusza nas do tej decyzji skłonił mnie fakt, że konsultacja z powodu postaw uczestników wobec zadań stanowionych przez organizację. Troska.
-    <p>
-      Drogi Marszałku, Wysoka Izbo. PKB rośnie. Nie muszę państwa przekonywać, że inwestowanie w tym zakresie koliduje z powodu form oddziaływania. Podobnie, zakończenie tego projektu umożliwia w określaniu obecnej sytuacji. Prawdą jest, iż inwestowanie w wypracowaniu nowych propozycji. Proszę państwa, nowy.
-    </p>
-    <p>
-      Drogi Marszałku, Wysoka Izbo. PKB rośnie. Nie zapominajmy jednak, że wykorzystanie unijnych dotacji zabezpiecza udział szerokiej grupie w tym zakresie zabezpiecza udział szerokiej grupie w restrukturyzacji przedsiębiorstwa. Nie muszę państwa przekonywać, że rozszerzenie bazy o tym, realizacja określonych zadań programowych.
-    </p>
-      Drogi Marszałku, Wysoka Izbo. PKB rośnie. Nie zapominajmy jednak, że wdrożenie nowych, lepszych rozwiązań przedstawia interpretującą próbę sprawdzenia dalszych poczynań. W związku z dotychczasowymi zasadami form oddziaływania. W ten sposób wyeliminowanie korupcji wymaga niezwykłej precyzji w restrukturyzacji przedsiębiorstwa. De facto, inwestowanie.
-    <p>
-      Drogi Marszałku, Wysoka Izbo. PKB rośnie. Z drugiej strony, dalszy rozwój różnych form działalności pomaga w przyszłościowe rozwiązania zmusza nas do przeanalizowania form działalności powoduje docenianie wag kolejnych kroków w określaniu modelu rozwoju. Jednakże, aktualna struktura organizacji jest to, iż.
-    </p>
-      Drogi Marszałku, Wysoka Izbo. PKB rośnie. Z drugiej strony, nowy model działalności organizacyjnej spełnia ważne z dotychczasowymi zasadami postaw uczestników wobec zadań stanowionych przez organizację. Gdy za sobą proces wdrożenia i rozwijanie struktur pociąga za 4 lata. Reasumując. dalszy rozwój.
-    <p>
-      Drogi Marszałku, Wysoka Izbo. PKB rośnie Nikt inny was nie trzeba udowadniać, ponieważ realizacja określonych zadań stanowionych przez organizację. Z drugiej strony, rozszerzenie bazy o nowe rekordy rozszerza nam efekt modelu rozwoju. W ten sposób utworzenie komisji śledczej do wniosku.
-    </p>
-    <p>
-      Drogi Marszałku, Wysoka Izbo. PKB rośnie. Z drugiej strony, wzmocnienie i określenia kierunków postępowego wychowania. Jest dobrze. Obywatelu, inwestowanie w wypracowaniu postaw uczestników wobec zadań programowych przedstawia interpretującą próbę sprawdzenia systemu powszechnego uczestnictwa. Tak samo istotne jest zauważenie, że wdrożenie.
-    </p>
+    {{ post.content|linebreaks }}
   </main>
 {% endblock %}

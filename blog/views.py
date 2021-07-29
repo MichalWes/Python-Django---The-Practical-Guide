@@ -6,7 +6,7 @@ all_posts = [
     {
         "slug": "1",
         "image": "2.jpg",
-        "author": "Michał",
+        "author": "Michał1",
         "date": date(2021, 7, 25),
         "title": "Wizyta w Stolicy Czech",
         "excerpt": "W Pradze było nam fantastyczne, chodziliśmy sobie i zwiedzaliśmy wśród tłumów ludzi przed pandemią",
@@ -16,7 +16,7 @@ all_posts = [
     {
         "slug": "2",
         "image": "2.jpg",
-        "author": "Michał",
+        "author": "Michał2",
         "date": date(2021, 7, 29),
         "title": "Wizyta w Stolicy Polski",
         "excerpt": "W Pradze było nam fantastyczne, chodziliśmy sobie i zwiedzaliśmy wśród tłumów ludzi przed pandemią",
@@ -25,7 +25,7 @@ all_posts = [
     {
         "slug": "3",
         "image": "2.jpg",
-        "author": "Michał",
+        "author": "Michał3",
         "date": date(2021, 7, 28),
         "title": "Wizyta w Stolicy Niemiec",
         "excerpt": "W Pradze było nam fantastyczne, chodziliśmy sobie i zwiedzaliśmy wśród tłumów ludzi przed pandemią",
@@ -47,8 +47,13 @@ def start_page(request):
 
 
 def posts(request):
-    return render(request, "blog/posts.html")
+    return render(request, "blog/posts.html", {
+        "all_posts": all_posts
+    })
 
 
 def single_post(request, slug):
-    return render(request, "blog/single-post.html")
+    identified_post = next(post for post in all_posts if post['slug'] == slug)
+    return render(request, "blog/single-post.html", {
+        "post": identified_post
+    })
